@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+	
+  <ItemGroup>
+	<PackageReference Include="ScottPlot.WPF" Version="4.1.61" />
+	<PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+	<PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+	<PackageReference Include="Numpy" Version="3.11.1.31" />
+	<PackageReference Include="MahApps.Metro.IconPacks.BootstrapIcons" Version="4.11.0" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,160 @@
+﻿<Window x:Class="SlantedEdgeMtf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SlantedEdgeMtf" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="MTF Analysis" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="1200.7185117336" WindowStyle="None" Height="764.96">
+    <GroupBox x:Name="MtfGroupBox">
+        <GroupBox.Header>
+            <Grid x:Name="HeaderGrid" Width="1190" MouseDown="HeaderGrid_MouseDown" Background="Transparent">
+                <iconPacks:PackIconBootstrapIcons x:Name="MtfIcon" Kind="Activity" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="1,1,1,1" Grid.Column="1" RenderTransformOrigin="0.5,0.5" />
+                <Label x:Name="HeaderLabel" Content="MTF Analysis" Padding="5,0,5,0" Foreground="White" Margin="15,0,0,0" FontFamily="Arial" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Button x:Name="CloseButton" HorizontalAlignment="Right" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="0,-1,-3,-1" Background="#FF3C3C3C" Click="CloseButton_Click">
+                    <iconPacks:PackIconBootstrapIcons x:Name="CloseIcon" Kind="X" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="1,1,1,1" Padding="2,2,2,2" Width="16" Height="16" Grid.Column="1" RenderTransformOrigin="0.5,0.5" />
+                </Button>
+            </Grid>
+        </GroupBox.Header>
+        <Grid x:Name="MtfGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="345"/>
+                <RowDefinition Height="389.96"/>
+            </Grid.RowDefinitions>
+            <GroupBox x:Name="MtfOptionsGroupBox" Margin="5,5,0,0">
+                <GroupBox.Header>
+                    <Grid x:Name="MtfOptionsHeaderGrid">
+                        <iconPacks:PackIconBootstrapIcons x:Name="MtfOptionsIcon" Kind="GearWideConnected" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="1,1,1,1" Grid.Column="1" RenderTransformOrigin="0.5,0.5" />
+                        <Label x:Name="MtfOptionsHeaderLabel" Content="MTF Options" Padding="5,0,5,0" Foreground="White" Margin="15,0,0,0" FontFamily="Arial" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Grid>
+                </GroupBox.Header>
+                <Grid x:Name="OptionsGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="RoiOptionsGrid" Background="#FF5AD69B">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Border x:Name="RoiOptionsBorder" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Grid.ColumnSpan="6"/>
+                        <Label x:Name="RoiOptionsLabel" Content="ROI Size" Padding="0,0,0,2" FontWeight="Bold" FontFamily="Arial" Grid.ColumnSpan="6" VerticalAlignment="Center" BorderBrush="#FF353535" BorderThickness="0,0,0,1" Margin="5,0,5,0"/>
+                        <Label x:Name="RoiXPositionLabel" Content="X Starting Position" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Column="1" Grid.Row="1"/>
+                        <TextBox x:Name="RoiXPositionTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2" Width="40" Grid.Row="1" HorizontalContentAlignment="Center" Text="0" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="IntegerValidation_PreviewTextInput"/>
+                        <Label x:Name="RoiYPositionLabel" Content="Y Starting Position" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Column="1" Grid.Row="2"/>
+                        <TextBox x:Name="RoiYPositionTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2" Width="40" Grid.Row="2" HorizontalContentAlignment="Center" Text="0" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="IntegerValidation_PreviewTextInput"/>
+                        <Label x:Name="RoiWidthLabel" Content="Roi Width" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Column="3" Grid.Row="1"/>
+                        <TextBox x:Name="RoiWidthTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Width="40" Grid.Row="1" HorizontalContentAlignment="Center" Text="0" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="IntegerValidation_PreviewTextInput"/>
+                        <Label x:Name="RoiHeightLabel" Content="Roi Height" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Column="3" Grid.Row="2"/>
+                        <TextBox x:Name="RoiHeightTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Width="40" Grid.Row="2" HorizontalContentAlignment="Center" Text="0" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="IntegerValidation_PreviewTextInput"/>
+                        <Button x:Name="RoiAppyButton" Content="Apply" Grid.Column="5" Grid.RowSpan="2" Margin="5,5,5,5" FontFamily="Arial" Grid.Row="1" Click="RoiAppyButton_Click" BorderBrush="#FFACACAC"/>
+                    </Grid>
+                    <Grid x:Name="DisplayOptionsGrid" Background="#FFDAE4EE" Grid.Row="1" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Border x:Name="DisplayOptionsBorder" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="6" Grid.ColumnSpan="6"/>
+                        <Label x:Name="DisplayOptionsLabel" Content="Display Options" Padding="0,0,0,2" FontWeight="Bold" FontFamily="Arial" VerticalAlignment="Center" BorderBrush="#FF353535" BorderThickness="0,0,0,1" Margin="5,0,5,0" Grid.ColumnSpan="6"/>
+                        <Label x:Name="PlotUnitsLabel" Content="MTF plot unit" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="1"/>
+                        <ComboBox x:Name="PlotUnitsComboBox" Width="120" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Padding="3,2.5,1,2.5" SelectedIndex="0" FontFamily="Arial">
+                            <ComboBoxItem Content="1. Cycles/pixel"/>
+                        </ComboBox>
+                        <Label x:Name="ForLabel" Content="for" Padding="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="1" Grid.Column="2"/>
+                        <TextBox x:Name="MicronsPerPixelTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="3" Width="40" Grid.Row="1" HorizontalContentAlignment="Center" Text="2" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="DecimalValidation_PreviewTextInput"/>
+                        <Label x:Name="UnitLabel" Content="microns per pixel" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="1" Grid.Column="4"/>
+                        <Button x:Name="DisplayApplyButton" Content="Apply" Grid.Column="5" FontFamily="Arial" Grid.Row="1" Margin="5,5,5,5" Grid.RowSpan="5" Click="DisplayApplyButton_Click" BorderBrush="#FFACACAC"/>
+                        <Label x:Name="ReadoutsLabel" Content="Readouts" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="2"/>
+                        <TextBox x:Name="FirstReadOutTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Width="40" Grid.Row="2" HorizontalContentAlignment="Center" Text="2,5" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="DecimalValidation_PreviewTextInput"/>
+                        <Label x:Name="FirstLpmmLabel" Content="lp/mm" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="2" Grid.Column="1" Margin="45,0,0,0"/>
+                        <TextBox x:Name="SecondReadOutTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Width="40" Grid.Row="3" HorizontalContentAlignment="Center" Text="7,5" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="DecimalValidation_PreviewTextInput"/>
+                        <Label x:Name="SecondLpmmLabel" Content="lp/mm" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="3" Grid.Column="1" Margin="45,0,0,0"/>
+                        <TextBox x:Name="ThirdReadOutTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Width="40" Grid.Row="4" HorizontalContentAlignment="Center" Text="15" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="DecimalValidation_PreviewTextInput"/>
+                        <Label x:Name="ThirdLpmmLabel" Content="lp/mm" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="4" Grid.Column="1" Margin="45,0,0,0"/>
+                        <TextBox x:Name="FourthReadOutTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Width="40" Grid.Row="5" HorizontalContentAlignment="Center" Text="30" FontFamily="Arial" Height="18.96" VerticalContentAlignment="Center" PreviewTextInput="DecimalValidation_PreviewTextInput"/>
+                        <Label x:Name="FourthLpmmLabel" Content="lp/mm" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="5" Grid.Column="1" Margin="45,0,0,0"/>
+                        <Label x:Name="PlotsLabel" Content="Plots" Padding="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="2" Grid.Column="3" FontWeight="Bold"/>
+                        <CheckBox x:Name="MtfCheckBox" Content="MTF" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" VerticalContentAlignment="Center" Padding="4,0,0,0" Grid.Column="4" Margin="5,0,0,0" IsChecked="True" IsEnabled="False"/>
+                        <CheckBox x:Name="EdgeCheckBox" Content="ESF" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" VerticalContentAlignment="Center" Padding="4,0,0,0" Grid.Column="4" Margin="5,0,0,0" IsChecked="True" IsEnabled="False"/>
+                        <CheckBox x:Name="PsfCheckBox" Content="PSF" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" VerticalContentAlignment="Center" Padding="4,0,0,0" Grid.Column="4" Margin="5,0,0,0" IsChecked="True" IsEnabled="False"/>
+                    </Grid>
+                    <Grid x:Name="OtherOptionsGrid" Background="#FFD1D1E9" Grid.Row="2" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Border x:Name="OtherOptionsBorder" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="4" Grid.ColumnSpan="6"/>
+                        <Label x:Name="OtherOptionsLabel" Content="Measurement Options" Padding="0,0,0,2" FontWeight="Bold" FontFamily="Arial" VerticalAlignment="Center" BorderBrush="#FF353535" BorderThickness="0,0,0,1" Margin="5,0,5,0" Grid.ColumnSpan="6"/>
+                        <Button x:Name="SelectImageButton" Content="Choose Image File" Margin="5,5,5,5" FontFamily="Arial" Grid.Row="1" Grid.RowSpan="2" Padding="5,1,5,1" Click="SelectImageButton_Click" BorderBrush="#FFACACAC"/>
+                        <Label x:Name="WarningLabel" Content="WARNING: Image will be converted to the grayscale." Padding="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="RoiGroupBox" Grid.Column="1" Margin="5,5,5,0">
+                <GroupBox.Header>
+                    <Grid x:Name="RoiHeaderGrid">
+                        <iconPacks:PackIconBootstrapIcons x:Name="RoiHeaderIcon" Kind="Image" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="1,1,1,1" Grid.Column="1" RenderTransformOrigin="0.5,0.5" />
+                        <Label x:Name="RoiHeaderLabel" Content="ROI Image" Padding="5,0,5,0" Foreground="White" Margin="15,0,0,0" FontFamily="Arial" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Grid>
+                </GroupBox.Header>
+                <Image x:Name="RoiImage" Width="570" Height="295" Margin="5,5,5,5"/>
+            </GroupBox>
+            <GroupBox x:Name="ResultsGroupBox" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,5,5,5">
+                <GroupBox.Header>
+                    <Grid x:Name="ResultsHeaderGrid">
+                        <iconPacks:PackIconBootstrapIcons x:Name="ResultsHeaderIcon" Kind="BarChartSteps" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" BorderThickness="1,1,1,1" Grid.Column="1" RenderTransformOrigin="0.5,0.5" />
+                        <Label x:Name="ResultsHeaderLabel" Content="Result Charts" Padding="5,0,5,0" Foreground="White" Margin="15,0,0,0" FontFamily="Arial" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    </Grid>
+                </GroupBox.Header>
+                <TabControl x:Name="ResultsTabControl" Height="350">
+                    <TabItem x:Name="MtfTabItem" Header="MTF" FontFamily="Arial">
+                        <WpfPlot x:Name="MtfPlot"/>
+                    </TabItem>
+                    <TabItem x:Name="EsfTabItem" Header="Edge Spread Function" FontFamily="Arial">
+                        <WpfPlot x:Name="EsfPlot"/>
+                    </TabItem>
+                    <TabItem x:Name="PsfTabItem" Header="Point Spread Function" FontFamily="Arial">
+                        <WpfPlot x:Name="PsfPlot"/>
+                    </TabItem>
+                </TabControl>
+            </GroupBox>
+        </Grid>
+    </GroupBox>
+</Window>
