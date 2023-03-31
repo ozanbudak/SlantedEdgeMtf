@@ -16,6 +16,9 @@ You may adjust ROI position and size using the "MTF Options" panel. Pixel size i
 
 ---
 
+## Screenshot
+![Screenshot of the application](https://github.com/ozanbudak/SlantedEdgeMtf/blob/master/screenshot.png)
+
 ## License
 >You can check out the full license [here](https://github.com/ozanbudak/SlantedEdgeMtf/blob/master/LICENSE.txt)
 
